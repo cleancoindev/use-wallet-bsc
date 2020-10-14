@@ -17,7 +17,7 @@ import { PortisConnector } from '@web3-react/portis-connector'
 import { SquarelinkConnector } from '@web3-react/squarelink-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 import { ConnectionRejectedError, ConnectorConfigError } from './errors'
-import { BinanceConnector } from '@bscswap/binance-connector'
+import { BinanceConnector ,UserRejectedRequestError as BinanceRejectedRequestError} from '@bscswap/binance-connector'
 
 import {
   UserRejectedRequestError as WalletConnectUserRejectedRequestError,
@@ -57,7 +57,7 @@ export function getConnectors(chainId, connectorsInitsOrConfigs = {}) {
         return new BinanceConnector({ supportedChainIds: [chainId] })
       },
       handleActivationError(err) {
-        if (err instanceof BinanceConnectorRejectedRequestError) {
+        if (err instanceof BinanceRejectedRequestError) {
           return new ConnectionRejectedError()
         }
       },
