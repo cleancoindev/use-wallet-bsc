@@ -6,6 +6,7 @@ declare module 'use-wallet' {
     fortmatic: { apiKey: string }
     frame: {}
     injected: {}
+    binance: {}
     portis: { dAppId: string }
     squarelink: { clientId: string; options: object }
     provided: {}
